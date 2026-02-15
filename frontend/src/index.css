@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&family=Permanent+Marker&display=swap');
+
+:root {
+  --color-primary: #111;
+  --color-accent: #FF3300;
+  /* Bright Red-Orange */
+  --color-text: #fff;
+  --color-paper: #f0f0f0;
+
+  --font-heading: 'Anton', sans-serif;
+  --font-subheading: 'Oswald', sans-serif;
+  --font-hand: 'Permanent Marker', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-family: var(--font-subheading);
+  overflow-x: hidden;
+  /* Prevent horizontal scroll from rotated elements */
+}
+
+/* Global texture overlay - Grunge Paper */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Utility Classes */
+.comic-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 0.9;
+}
+
+.comic-border {
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0px var(--color-accent);
+}
+
+/* Rip / Torn Paper Effect using CSS Mask or SVG */
+.rip-divider {
+  position: relative;
+  height: 50px;
+  background: var(--color-primary);
+  width: 100%;
+  z-index: 10;
+}
+
+/* Example simple jagged edge via gradient */
+.rip-top {
+  background: linear-gradient(135deg, transparent 10px, var(--color-primary) 10px),
+    linear-gradient(225deg, transparent 10px, var(--color-primary) 10px);
+  background-size: 20px 20px;
+  background-position: top center;
+  background-repeat: repeat-x;
+  height: 20px;
+  width: 100%;
+  transform: rotate(180deg);
+}
+
+.rip-bottom {
+  background: linear-gradient(135deg, transparent 10px, var(--color-primary) 10px),
+    linear-gradient(225deg, transparent 10px, var(--color-primary) 10px);
+  background-size: 20px 20px;
+  background-position: top center;
+  background-repeat: repeat-x;
+  height: 20px;
+  width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
