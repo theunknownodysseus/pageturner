@@ -10,7 +10,7 @@ function Order({ design }) {
       quantity: qty
     };
 
-    await fetch("http://localhost:8080/orders", {
+    await fetch("http://localhost:8083/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
